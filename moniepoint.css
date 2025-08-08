@@ -1,0 +1,257 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+a{
+    color: white;
+}
+/* Body background to show glass effect clearly */
+body {
+ background: linear-gradient(135deg, #141b2e 0%, #1e3c72 50%, #ced8e9 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 1rem 0;
+}
+
+/* Parent-Child Container inside Navbar */
+.navbar-parent-child {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Left side of the nav */
+.navleft {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20rem;
+}
+
+.moniepoint-logo img {
+  width: 150px;
+}
+
+.navleft-text-account-type {
+  display: flex;
+  width: 9rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Right side of the nav */
+.navRight {
+  display: flex;
+  width: 45rem;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.navRight-link ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navRight-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Dropdown container */
+.menuItem {
+  position: relative;
+}
+.menuItem li a{
+    text-decoration: none;
+    color: beige;
+}
+
+/* Dropdown base styling */
+.dropDown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(255, 255, 255, 0.932);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  min-width: 300px;
+  padding: 1rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Show dropdown on hover */
+.menuItem:hover .dropDown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown list items */
+.dropDown li {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #000000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropDown li:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* End of navbar - Sign in + country */
+.navRight-end {
+  display: flex;
+  justify-content: space-between;
+  width: 9rem;
+}
+
+/* Optional button style */
+.sign-in button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #ffffff22;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sign-in button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Optional country icon style */
+.countries img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.bg-img{
+    display: flex;
+    /* background: #f5f5f5; */
+    width: auto;
+    height: auto;
+    margin-left: 1rem;
+     margin-right:1rem;
+
+}
+.bg-img img{
+    width: 820px;
+}
+
+.bg-img .content{
+    justify-content: center;
+    margin: 150px auto;
+}
+.bg-img .content h3{
+    font-size: 57px;
+}
+.banking-div-para p{
+    font-size: 17px;
+}
+.banking-div{
+    justify-content: space-between;
+    padding: 1em;
+    height: auto;
+    /* background: #000; */
+    margin-left: 1em;
+}
+.banking-div-para{
+    padding-top: 2em;
+}
+.content-btn{
+  margin: 100px auto;
+  
+   /* padding-left: 1em;
+   padding-right: 1em; */
+   height: 77px;
+   width: auto;
+   display: flex;
+   justify-content: space-between;
+   /* background-color: #fff; */
+   
+   /* align-items: center; */
+} 
+.content-btn a{
+ justify-content: space-between;
+ justify-content: center;
+ /* align-items: center; */
+ color: white;
+}
+.content-btn button{
+    height: 80%;
+    width: 16em;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.479);
+    position: relative;
+    color: wheat;
+    
+   
+}
+.content-btn-playStr img{
+   width: 37px;
+   
+  
+}
+.content-btn-appStr img{
+  width: 37px;
+  color: #000000;
+ 
+}
+.store-btn{
+  border-radius: 44rem;
+  border: 2px solid white;
+}
+
+
+
+
+// let current = 0;
+// let steps = document.querySelectorAll('.form-page');
+// const form = document.querySelector(".multi-form");
+
+// // Handles moving to the next step
+// function nextStep() {
+//   if (current < steps.length - 1) {
+//     steps[current].classList.remove('active');
+//     current++;
+//     steps[current].classList.add('active');
+//   }
+// }
+
+// // Handles form submission
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault(); // Prevent default form behavior (like reloading)
+  
+//   // You can optionally validate the input here
+
+//   // Redirect to profile page
+//   window.location.href = "profile.html";
+// });

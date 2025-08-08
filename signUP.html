@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="signUp.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sign-up">
+      <div class="sign-up-top">
+        <div class="logo">
+          <!-- <a href="">
+                <img src="img/logo-mfb.png" alt="" />
+             </a> -->
+          <i class="fa-solid fa-arrow-left" onclick="backStep()"></i>
+        </div>
+
+        <div class="registration-top">
+          <div class="need-help">
+            <p>Need help?</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="multi-form" id="multiform">
+        <div class="form-page active" id="step1">
+          <h2>Enter the Email you want to use</h2>
+          <input type="email" id="email" placeholder="Enter email" required />
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+
+        <div class="form-page" id="step2">
+          <h2>Enter full name</h2>
+          <input type="text" placeholder="Full Nmae" id="fullName" required />
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+
+        <div class="form-page" id="step3">
+          <h2>Password</h2>
+          <input id="password" placeholder="password" required />
+           <button type="submit">Submit</button>
+        </div>
+      </form>
+
+    </div>
+    <script src="signUp.js"></script>
+  </body>
+</html>

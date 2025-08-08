@@ -1,0 +1,87 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+ background: linear-gradient(135deg, #141b2e 0%, #1e3c72 50%, #ced8e9 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sign-up{
+    /* display: flex; */
+}
+.logo img{
+     width: 150px;
+}
+.sign-up-top{
+    display: flex;
+    /* background: #000; */
+    width: 100vw;
+    justify-content: space-between;
+    align-content: center;
+    padding: 1.5em  1.5em;
+}
+
+/* form styling */
+
+.form-logo img{
+    width: 80px;
+}
+.registration-top{
+    display: flex;
+    justify-content: space space-between;
+    align-items: center;
+}
+.need-help {
+    color: white;
+}
+.multi-form {
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+
+.form-page {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 100%; /* Start offscreen to the right */
+  opacity: 0;
+  transition: all 1s ease;
+  visibility: hidden;
+}
+.form-page h2{
+    font-size: 18px;
+}
+.form-page.active {
+  left: 0;
+  opacity: 1;
+ visibility: visible;
+  position: relative;
+}
+
+form input {
+  width: 60%;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+form button {
+  padding: 10px 20px;
+  background: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+ 
+}
