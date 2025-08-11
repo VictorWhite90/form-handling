@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
         try{
-            const req = await fetch ("http://localhost:3000/register", 
+            const req = await fetch ("https://form-handling-5.onrender.com/register", 
                 {
                     method: 'POST',
                     headers:{

@@ -6,7 +6,25 @@ const PORT = process.env.PORT || 3000;
 
 
 
-app.use(cors());
+const allowedOrigins = [
+  'http://127.0.0.1:5501',                // Local frontend
+  'https://your-frontend-domain.com'      // Deployed frontend
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like Postman) or from allowed list
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
+
+
 // Middleware to read JSON in requests
 app.use(express.json());
 
