@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   'http://127.0.0.1:5501',                // Local frontend
-  'https://your-frontend-domain.com'      // Deployed frontend
+  'https://form-handling-two.vercel.app'       // Deployed frontend
 ];
 
 app.use(cors({
@@ -43,7 +43,8 @@ app.post('/register', (req, res) => {
   // For now, just log and pretend to save to database
   console.log(`New user registered: ${email} | Password: ${password}`);
 
-  res.send('Registration successful');
+ res.json({ message: "successful" });
+
 });
 
 app.listen(PORT, () => {
