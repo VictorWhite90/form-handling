@@ -85,3 +85,23 @@ form button {
   cursor: pointer;
  
 }
+.input-wrapper {
+  position: relative;
+  width: 60%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px;
+  padding-right: 35px; /* space for icon */
+  margin: 10px 0;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #1e88e5;
+}

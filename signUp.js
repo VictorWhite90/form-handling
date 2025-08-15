@@ -1,6 +1,7 @@
 let current = 0;
 let steps = document.querySelectorAll(".form-page");
 let nextBtns = document.querySelectorAll(".next-btn");
+const togglePassword = document.getElementById("togglePassword")
 
 nextBtns.forEach((btn) => {
   btn.addEventListener("click", nextStep);
@@ -32,39 +33,61 @@ function backStep() {
   }
 }
 
-// Handles form submission
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("multiform");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+function toggleIconForPassword(toggleId, inputId){
+    const toggle = document.getElementById(toggleId);
+    const input = document.getElementById(inputId);
 
-    const email = e.target.email.value.trim();
-    const fullName = e.target.fullName.value.trim();
-    const password = e.target.password.value.trim();
-
-  try {
-  const req = await fetch("https://form-handling-5.onrender.com/register", {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ email, password, fullName }),
-  });
-
-  const text = await req.text();
-  console.log("Raw response from Render:", text);
-
-  // Try parsing only if it's valid JSON
-  try {
-    const data = JSON.parse(text);
-    if (data.message === "successful") {
-      window.location.href = "profile.html";
-    }
-  } catch (err) {
-    console.error("Not JSON, probably HTML:", err);
-  }
-} catch (err) {
-  console.error("Error logging in", err);
+    toggle.addEventListener("click", () => {
+        input.type = input.type === "password" ? "text" : "password"
+    })
 }
 
-  });
-});
+toggleIconForPassword("togglePassword", "password");
+toggleIconForPassword("togglePassword2", "password2")
+
+
+
+
+// Handles form submission
+document.addEventListener("DOMContentLoaded", ()=> {
+    const form = document.getElementById("multiform");
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+
+        const email = e.target.email.value.trim();
+        const password = e.target.password.value.trim();
+        const password2 = e.target.password2.value.trim();
+        const fullName = e.target.fullName.value.trim();
+
+        if(password !== password2){
+            alert("password do not match")
+            return;
+        }
+
+
+        try {
+            const req = await fetch("https://form-handling-4.onrender.com/register", 
+                {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({email, password, fullName})
+                }
+            )
+
+            const data = await req.json();
+            if(data.message === "User registered successfully"){
+                window.location.href = "profile.html"
+            }else(
+                alert(data.message || "Registration failed, please try again later")
+            )
+        }
+        catch (err) {
+            console.log( "Response was not a valid JSON", err )
+            alert("something went wrong. Please try again")
+        }
+    })
+})

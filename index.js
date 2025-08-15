@@ -1,19 +1,26 @@
+
+require('dotenv').config(); // Load .env variables
 const express = require('express');
-const cors = require('cors'); // <-- import cors
+const cors = require('cors');
+const bcrypt = require('bcryptjs');
+const { createClient } = require('@supabase/supabase-js'); // Import Supabase
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// ====== SUPABASE SETUP ======
+// Replace with your own Supabase URL and anon key
 
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-
+// ====== CORS CONFIG ======
 const allowedOrigins = [
-  'http://127.0.0.1:5501',                // Local frontend
-  'https://form-handling-two.vercel.app'       // Deployed frontend
+  'http://127.0.0.1:5501',                
+  'https://form-handling-two.vercel.app' 
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // allow requests with no origin (like Postman) or from allowed list
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -24,27 +31,42 @@ app.use(cors({
   allowedHeaders: ['Content-Type']
 }));
 
-
-// Middleware to read JSON in requests
+// ====== MIDDLEWARE ======
 app.use(express.json());
 
-// Test route
+// ====== TEST ROUTE ======
 app.get('/', (req, res) => {
   res.send('Hello from Express backend!');
 });
 
-// Registration route
-app.post('/register', (req, res) => {
-  const { email, password, fullName} = req.body;
+// ====== REGISTRATION ROUTE ======
+app.post('/register', async (req, res) => {
+  const { email, password, fullName } = req.body;
 
   if (!email || !password || !fullName) {
-    return res.status(400).send('Missing email or password');
+    return res.status(400).send('Missing email, password, or full name');
   }
-  // For now, just log and pretend to save to database
-  console.log(`New user registered: ${email} | Password: ${password}`);
 
- res.json({ message: "successful" });
+  try {
+    // 1️⃣ Hash password before saving
+    const hashedPassword = await bcrypt.hash(password, 10);
 
+    // 2️⃣ Save to Supabase database
+    const { data, error } = await supabase
+      .from('users') // <-- your table name in Supabase
+      .insert([{ email, password: hashedPassword, fullName }]);
+
+    if (error) {
+      console.error(error);
+      return res.status(500).json({ error: error.message });
+    }
+
+    res.json({ message: "User registered successfully", user: data });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
 app.listen(PORT, () => {
