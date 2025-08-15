@@ -8,6 +8,9 @@ const { createClient } = require('@supabase/supabase-js'); // Import Supabase
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+console.log('SUPABASE_URL:', process.env.SUPABASE_URL);
+console.log('SUPABASE_KEY:', process.env.SUPABASE_KEY);
+
 // Replace with your own Supabase URL and anon key
  // <-- use the anon key from your project
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
