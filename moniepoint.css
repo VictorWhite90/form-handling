@@ -233,25 +233,3 @@ body {
 
 
 
-// let current = 0;
-// let steps = document.querySelectorAll('.form-page');
-// const form = document.querySelector(".multi-form");
-
-// // Handles moving to the next step
-// function nextStep() {
-//   if (current < steps.length - 1) {
-//     steps[current].classList.remove('active');
-//     current++;
-//     steps[current].classList.add('active');
-//   }
-// }
-
-// // Handles form submission
-// form.addEventListener("submit", function (e) {
-//   e.preventDefault(); // Prevent default form behavior (like reloading)
-  
-//   // You can optionally validate the input here
-
-//   // Redirect to profile page
-//   window.location.href = "profile.html";
-// });

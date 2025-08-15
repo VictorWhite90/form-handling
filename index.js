@@ -8,12 +8,10 @@ const { createClient } = require('@supabase/supabase-js'); // Import Supabase
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// ====== SUPABASE SETUP ======
 // Replace with your own Supabase URL and anon key
-
+ // <-- use the anon key from your project
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-// ====== CORS CONFIG ======
 const allowedOrigins = [
   'http://127.0.0.1:5501',                
   'https://form-handling-two.vercel.app' 

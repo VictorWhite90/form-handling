@@ -1,0 +1,29 @@
+[33mcommit 57886c6a8e95a421a39ccb9d129e9bb7e4ff7a18[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Victor Chinedu <victorwhite590@gmail.com>
+Date:   Fri Aug 15 16:14:59 2025 +0100
+
+    added supabase
+
+[33mcommit c2dd1a1d3916f57de32b1c0e9c8e170b4f92cacf[m
+Author: Victor Chinedu <victorwhite590@gmail.com>
+Date:   Wed Aug 13 16:24:56 2025 +0100
+
+    render json issue
+
+[33mcommit 428e2ce982989c559ae6965adb510eb65753c08b[m
+Author: Victor Chinedu <victorwhite590@gmail.com>
+Date:   Mon Aug 11 18:37:59 2025 +0100
+
+    render core fix1
+
+[33mcommit 6481b8bf13f1ebc67db212cf35c596042c67c8f1[m
+Author: Victor Chinedu <victorwhite590@gmail.com>
+Date:   Mon Aug 11 18:03:37 2025 +0100
+
+    removed backend folder
+
+[33mcommit 18633acb2dcdec33c1f0ecdc522f53b5e82c3b4d[m
+Author: Victor Chinedu <victorwhite590@gmail.com>
+Date:   Fri Aug 8 20:58:26 2025 +0100
+
+    first commit
