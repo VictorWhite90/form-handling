@@ -43,6 +43,8 @@ app.get('/', (req, res) => {
 // ====== REGISTRATION ROUTE ======
 app.post('/register', async (req, res) => {
   const { email, password, fullName } = req.body;
+  console.log("Incoming registration:", req.body);
+
 
   if (!email || !password || !fullName) {
     return res.status(400).send('Missing email, password, or full name');
