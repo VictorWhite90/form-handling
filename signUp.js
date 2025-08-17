@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", ()=> {
             if(data.message === "User registered successfully"){
                 window.location.href = "profile.html"
             }else(
-                alert(data.message || "Registration failed, please try again later")
-            )
+                 alert(data.error || data.message || "Registration failed, please try again later")
+            );
         }
         catch (err) {
             console.log( "Response was not a valid JSON", err )

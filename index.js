@@ -60,8 +60,8 @@ app.post('/register', async (req, res) => {
       .insert([{ email, password: hashedPassword, fullName }]);
 
     if (error) {
-      console.error(error);
-      return res.status(500).json({ error: error.message });
+      console.error("Supabase insert error:", error);  // 👀 more details
+  return res.status(500).json({ error: error.message, details: error });
     }
 
     res.json({ message: "User registered successfully", user: data });
