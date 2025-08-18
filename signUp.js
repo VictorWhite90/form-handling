@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () =>{
     try{
 
        loader.style.display = "flex";
-       
-      const req = await fetch ("https://form-handling-4.onrender.com", 
+
+      const req = await fetch ("https://form-handling-4.onrender.com/register", 
          {
           method: "POST",
           headers:{
