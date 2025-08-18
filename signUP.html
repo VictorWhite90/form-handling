@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/owasp-password-strength-test/owasp-password-strength-test.js"></script>
   </head>
   <body>
     <div class="sign-up">
@@ -80,7 +81,7 @@
             />
             <span class="toggle-password" id="togglePassword2">👁</span>
           </div>
-
+          <p id="password-feedback" style="color: red; font-size: 14px;"></p>
           <button type="submit" id="submitBtn">Submit</button>
         </div>
       </form>
@@ -114,4 +115,7 @@
     </div>
     <script src="signUp.js"></script>
   </body>
+
+
+
 </html>

@@ -1,3 +1,5 @@
+
+
 let current = 0;
 let steps = document.querySelectorAll(".form-page");
 let nextBtns = document.querySelectorAll(".next-btn");
@@ -56,11 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullName = e.target.fullName.value.trim();
     const password = e.target.password.value.trim();
     const password2 = e.target.password2.value.trim();
-
+     
     if (password !== password2) {
       alert("password do not match");
       return;
     }
+
+    if(!passwordRegex.test(password))
 
     try {
       loader.style.display = "flex";
@@ -87,4 +91,31 @@ document.addEventListener("DOMContentLoaded", () => {
       loader.style.display = "none";
     }
   });
+});
+
+
+//password strength checker using owasp
+
+// OWASP will now be available under window.owaspPasswordStrengthTest
+const owasp = window.owaspPasswordStrengthTest;
+
+// optional config
+owasp.config({
+  minLength: 8,
+  minOptionalTestsToPass: 3
+});
+
+const passwordInput = document.getElementById("password");
+const feedback = document.getElementById("password-feedback");
+
+passwordInput.addEventListener("input", () => {
+  const result = owasp.test(passwordInput.value);
+
+  if (result.errors.length > 0) {
+    feedback.textContent = result.errors.join(" | ");
+    feedback.style.color = "red";
+  } else {
+    feedback.textContent = "✅ Strong password!";
+    feedback.style.color = "green";
+  }
 });
