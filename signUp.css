@@ -1,4 +1,5 @@
 
+
 *{
     margin: 0;
     padding: 0;
@@ -15,9 +16,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-.sign-up{
-    /* display: flex; */
-}
+
 .logo img{
      width: 150px;
 }

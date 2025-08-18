@@ -3,6 +3,7 @@ let steps = document.querySelectorAll(".form-page");
 let nextBtns = document.querySelectorAll(".next-btn");
 const togglePassword = document.getElementById("togglePassword")
 
+
 nextBtns.forEach((btn) => {
   btn.addEventListener("click", nextStep);
 });
@@ -50,44 +51,58 @@ toggleIconForPassword("togglePassword2", "password2")
 
 
 // Handles form submission
-document.addEventListener("DOMContentLoaded", ()=> {
-    const form = document.getElementById("multiform");
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+document.addEventListener("DOMContentLoaded", () =>{
+  const form = document.getElementById("multiform");
+  const loader = document.getElementById("loader");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+  
 
 
-        const email = e.target.email.value.trim();
-        const password = e.target.password.value.trim();
-        const password2 = e.target.password2.value.trim();
-        const fullName = e.target.fullName.value.trim();
-
-        if(password !== password2){
-            alert("password do not match")
-            return;
-        }
+    const email = e.target.email.value.trim();
+    const fullName = e.target.fullName.value.trim();
+    const password = e.target.password.value.trim();
+    const password2 = e.target.password2.value.trim();
 
 
-        try {
-            const req = await fetch("https://form-handling-4.onrender.com/register", 
-                {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify({email, password, fullName})
-                }
-            )
+    
 
-            const data = await req.json();
-            if(data.message === "User registered successfully"){
-                window.location.href = "profile.html"
-            }else(
-                 alert(data.error || data.message || "Registration failed, please try again later")
-            );
-        }
-        catch (err) {
-            console.log( "Response was not a valid JSON", err )
-            alert("something went wrong. Please try again")
-        }
-    })
+
+    if( password !== password2){
+      alert("password do not match")
+      return;
+    }
+
+    try{
+
+       loader.style.display = "flex";
+       
+      const req = await fetch ("https://form-handling-4.onrender.com", 
+         {
+          method: "POST",
+          headers:{
+            "content-type" : "application/json"
+          },
+          body: JSON.stringify({email, password, fullName})
+         }
+      );
+      const data = await req.json();
+      if (data.mesage === "User registered successfully"){
+        alert("Registration Sucessful")
+        window.location.href = "profile.html"
+      }else{
+       alert(data.mesaage || "Registration Failed, please try again later")
+      }
+    }
+    catch(err){
+      console.log(err.message)
+      alert("something went wrong. Please try again")
+    }
+    finally {
+      // Hide loader
+      loader.style.display = "none";
+    }  
+    
+  })
 })
